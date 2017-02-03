@@ -1,0 +1,91 @@
+//加载express
+var express = require('express');
+var path = require('path');
+var bodyParser = require('body-parser');
+//设置端口，环境变量
+var port = process.env.PORT || 3000;
+//启动一个web服务器
+var app = express();
+app.set('views','./views/pages');
+app.set('view engine','jade');
+app.use(bodyParser());
+app.use(express.static(path.join(__dirname,'bower_components')))
+
+app.listen(port);
+console.log('imooc started');
+//配置页面,路由
+app.get('/index',function(req,res){
+	res.render('index',{
+		title:'首页',
+		movies:[{
+			title:'机械战警',
+			_id:1,
+			poster:'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
+		},{
+			title:'机械战警',
+			_id:2,
+			poster:'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
+		},{
+			title:'机械战警',
+			_id:3,
+			poster:'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
+		},{
+			title:'机械战警',
+			_id:4,
+			poster:'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
+		},{
+			title:'机械战警',
+			_id:5,
+			poster:'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
+		},{
+			title:'机械战警',
+			_id:6,
+			poster:'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5'
+		}]
+	})
+})
+app.get('/movie/:id',function(req,res){
+	res.render('detail',{
+		title:'详情页',
+		movies:{
+			doctor:'wangliya',
+			country:'美国',
+			title:'机械战绩',
+			year:2014,
+			poster:'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5',
+			language:'english',
+			flash:'',
+			summary:'abckefghijklmnopqrstuvwxyz'
+		}
+	})
+})
+app.get('/admin/list',function(req,res){
+	res.render('list',{
+		title:'列表页',
+		movies:[{
+			_id:1,
+			title:'机械战绩',
+			doctor:'wangliya',
+			country:'美国',
+			language:'english',
+			year:2014,
+			poster:'http://r3.ykimg.com/05160000530EEB63675839160D0B79D5',
+			summary:'abckefghijklmnopqrstuvwxyz'
+		}]
+	})
+})
+app.get('/admin',function(req,res){
+	res.render('admin',{
+		title:'后台登录页',
+		movie:{
+			title:'',
+			doctor:'',
+			country:'',
+			year:'',
+			poster:'',
+			language:'',
+			flash:'',
+			summary:''
+		}
+	})
+})

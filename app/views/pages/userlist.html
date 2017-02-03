@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>名字</th>
+					<th>密码</th>
+					<th>时间</th>
+					<th>查看</th>
+					<th>修改</th>
+					<th>删除</th>
+				</tr>
+			</thead>
+			<tbody>
+				each item in users
+				<tr class="item-id-#{item._id}">
+					<td>#{item.name}</td>
+					<td>#{item.password}</td>
+					<td>#{moment(item.meta.updateAt).format(MM/DD/YYYY)}）</td>
+					<td><a target="_blank" href="../user/#{item._id}">查看</a></td>
+					<td><a target="_blank" href="../user/updata/#{item._id}">修改</a></td>
+					<td><button type="button" data-id="#{item._id}" class="btn btn-danger del">删除</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

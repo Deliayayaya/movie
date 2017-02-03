@@ -1,0 +1,91 @@
+<link href="bower_components/bootstrap/dist/css/bootstrap.min.css",rel="stylesheet"/>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+<div class="container">
+	<div class="row">
+		<div class="page-header">
+			<div class="col-md-4">
+				<h1 id="title"></h1>
+			</div>
+			<div class="col-md-8">
+				<form method="GET" action="/results">
+					<div class="input-group col-sm-4 pull-right">
+						<input class="form-control" name="q" type="text">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit">搜索</button>
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="navbar navbar-default navbar-fixed-top" >
+	<div class="navbar-header">
+		<a class="navbar-brand" href="/">welcome</a>
+	</div>
+		if user
+			<p class="navbar-text navbar-right">
+				<span>welcome,#{user.name}</span>
+				<a class="navbar-link" href="/loginout">登出</a>
+			</p>
+		else
+			<p class="navbar-text navbar-right">
+				<a data-toggle="modal" data-target="#register" href="#">注册</a>
+			&nbsp;|&nbsp;
+				<a data-toggle="modal" data-target="#signin" href="#">登录</a>
+			</p>
+</div>
+<div class="modal fade" id="register">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form method="POST" action="/user/register">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<div class="modal-title" id="myModalLabel">注册</div>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="username">用户名</label>
+						<input class="form-control" id="username" type="text" name="user[name]"/>
+					</div>
+					<div class="form-group">
+						<label for="password">密码</label>
+						<input class="form-control" id="password" type="password" name="user[pasword]"/>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button class="btn btn-primary" type="submit">注册</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="sign">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form method="POST" action="/user/signin">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<div class="modal-title" id="myModalLabel">登录</div>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="signinname">用户名</label>
+						<input class="form-control" id="signinname" type="text" />
+					</div>
+					<div class="form-group">
+						<label for="password">密码</label>
+						<input class="form-control" id="password" type="password" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button class="btn btn-primary" type="submit">登录</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

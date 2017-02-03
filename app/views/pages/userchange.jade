@@ -1,0 +1,16 @@
+extends ../layout
+block content
+	.container
+		.row
+			form.form-horizontal
+				.form-group
+					label.col-sm-2(for='username') 用户名
+					.col-ms-10
+						input#username.form-control(type='text', name='user[name]')
+				.form-group
+					label.col-sm-2(for='password') 密码
+					.col-ms-10
+						input#password.form-control(type='password', name='user[password]')
+				.form-group
+					.col-sm-offset-2.col-sm-10
+						button.btn.btn-default(type="submit") 录入

@@ -1,0 +1,38 @@
+<div class="row">
+	<ul class="media-list">
+		each item in comments
+		<li class="media">
+			<div class="pull-left">
+				<a href="#commentForm">
+					<img src="http://pic.qiantucdn.com/58pic/15/02/88/14x58PICWPY.jpg!qt226"/>
+				</a>
+				<h4 class="media-heading">#{item.from}</h4>
+				<p>#{item.content}</p>
+			</div>
+		</li>
+		<div class="media" style="margin-left:50px">
+			<div class="pull-left">
+				<img src="http://pic.qiantucdn.com/58pic/15/02/88/14x58PICWPY.jpg!qt226"/>
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">#{item.from}</h4>
+				<p>#{item.content}</p>
+			</div>
+		</div>
+	</ul>
+</div>
+<div class="panel panel-primary" id="comments">
+	<div class="panel-heading">
+		<h3 class="panel-title">评论区</h3>
+	</div>
+	<div class="panel-body">
+		<form id="commentForm" methods="POST" action="/user/comment">
+			<input type="hidden" name="comment[movie]" value="#{movies._id}"/>
+			<input type="hidden" name="comment[from]" value="#{user._id}"/>
+			<div class="form-group">
+				<textarea class="form-control" name="comment[content]" row="3"></textarea>
+				<button class="btn btn-default" type="submit">评论</button>
+			</div>
+		</form>
+	</div>
+</div>

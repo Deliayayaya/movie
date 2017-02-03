@@ -1,0 +1,24 @@
+{
+  "name": "imooc",
+  "authors": [
+    "wangliya111 <wangliya@twirlingvr.com>"
+  ],
+  "description": "0.0.1",
+  "main": "",
+  "keywords": [
+    "imooc"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
